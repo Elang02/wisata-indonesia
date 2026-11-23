@@ -1,0 +1,113 @@
+[
+  {
+    "id": "R1",
+    "if": [
+      "itinerary_kosong"
+    ],
+    "then": "simpan_draft"
+  },
+  {
+    "id": "R2",
+    "if": [
+      "durasi_tidak_cocok"
+    ],
+    "then": "perlu_revisi"
+  },
+  {
+    "id": "R3",
+    "if": [
+      "hari_tanpa_aktivitas"
+    ],
+    "then": "itinerary_tidak_lengkap"
+  },
+  {
+    "id": "R4",
+    "if": [
+      "itinerary_tidak_lengkap"
+    ],
+    "then": "perlu_revisi"
+  },
+  {
+    "id": "R5",
+    "if": [
+      "hari_aktivitas_minim"
+    ],
+    "then": "itinerary_kurang_detail"
+  },
+  {
+    "id": "R6",
+    "if": [
+      "itinerary_kurang_detail"
+    ],
+    "then": "perlu_verifikasi_kurator"
+  },
+  {
+    "id": "R7",
+    "if": [
+      "perlu_verifikasi_kurator",
+      "partner_terverifikasi"
+    ],
+    "then": "simpan_draft"
+  },
+  {
+    "id": "R8",
+    "if": [
+      "partner_belum_terverifikasi"
+    ],
+    "then": "simpan_draft"
+  },
+  {
+    "id": "R9",
+    "if": [
+      "pax_tidak_valid"
+    ],
+    "then": "perlu_revisi"
+  },
+  {
+    "id": "R10",
+    "if": [
+      "open_trip_max_kurang"
+    ],
+    "then": "perlu_revisi"
+  },
+  {
+    "id": "R11",
+    "if": [
+      "harga_nol"
+    ],
+    "then": "perlu_revisi"
+  },
+  {
+    "id": "R12",
+    "if": [
+      "harga_di_bawah_batas"
+    ],
+    "then": "perlu_verifikasi_kurator"
+  },
+  {
+    "id": "R13",
+    "if": [
+      "kebijakan_kosong"
+    ],
+    "then": "perlu_revisi"
+  },
+  {
+    "id": "R14",
+    "if": [
+      "komponen_akomodasi_kosong"
+    ],
+    "then": "perlu_revisi"
+  },
+  {
+    "id": "R15",
+    "if": [
+      "itinerary_valid",
+      "partner_terverifikasi",
+      "pax_valid",
+      "harga_wajar",
+      "kebijakan_ada",
+      "komponen_akomodasi_ada"
+    ],
+    "then": "publikasikan"
+  }
+]
