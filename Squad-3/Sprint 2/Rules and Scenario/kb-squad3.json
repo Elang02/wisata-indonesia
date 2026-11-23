@@ -1,0 +1,66 @@
+{
+  "kasus": "Kelayakan publikasi paket wisata di katalog NusantaraGo",
+  "pengguna_keputusan": "Kurator Konten / Admin Katalog (Squad 3)",
+  "facts": [
+    { "group": "FAKTA MITRA", "items": [
+      { "id": "partner_terverifikasi", "label": "Mitra terverifikasi (KYC lolos, partner.is_verified = true)" },
+      { "id": "partner_belum_terverifikasi", "label": "Mitra belum terverifikasi" }
+    ]},
+    { "group": "FAKTA ITINERARY & TIMELINE", "items": [
+      { "id": "itinerary_kosong", "label": "itinerary_details kosong" },
+      { "id": "durasi_tidak_cocok", "label": "Jumlah hari unik di itinerary tidak sama dengan duration_days" },
+      { "id": "hari_tanpa_aktivitas", "label": "Ada hari 1..duration_days yang tidak punya aktivitas" },
+      { "id": "hari_aktivitas_minim", "label": "Ada hari yang hanya berisi 1 aktivitas" },
+      { "id": "itinerary_valid", "label": "Itinerary lengkap: semua hari terisi dan tiap hari ≥ 2 aktivitas" }
+    ]},
+    { "group": "FAKTA PESERTA (TIER PAX)", "items": [
+      { "id": "pax_valid", "label": "Rentang pax valid dan sesuai jenis paket" },
+      { "id": "pax_tidak_valid", "label": "min_pax < 1 atau max_pax < min_pax" },
+      { "id": "open_trip_max_kurang", "label": "Open trip dengan max_pax < 4 (kuota gabungan tidak layak)" }
+    ]},
+    { "group": "FAKTA HARGA & KEBIJAKAN", "items": [
+      { "id": "harga_nol", "label": "base_price 0 atau negatif" },
+      { "id": "harga_di_bawah_batas", "label": "base_price di bawah Rp75.000 per pax" },
+      { "id": "harga_wajar", "label": "base_price ≥ Rp75.000 per pax" },
+      { "id": "kebijakan_kosong", "label": "cancellation_policy kosong" },
+      { "id": "kebijakan_ada", "label": "Kebijakan pembatalan terisi" }
+    ]},
+    { "group": "FAKTA KOMPONEN PAKET", "items": [
+      { "id": "komponen_akomodasi_kosong", "label": "Paket ≥ 2 hari tanpa satu pun item akomodasi" },
+      { "id": "komponen_akomodasi_ada", "label": "Syarat akomodasi terpenuhi (paket 1 hari atau punya item akomodasi)" }
+    ]}
+  ],
+  "conclusions": {
+    "itinerary_tidak_lengkap": {
+      "label": "Itinerary tidak lengkap",
+      "body": "Ada hari yang kosong. Timeline harian adalah inti paket, jadi paket tidak bisa dinilai layak.",
+      "goal": false
+    },
+    "itinerary_kurang_detail": {
+      "label": "Itinerary kurang detail",
+      "body": "Semua hari terisi, tetapi ada hari dengan satu aktivitas saja. Wisatawan tidak memperoleh gambaran rencana harian yang utuh.",
+      "goal": false
+    },
+    "perlu_verifikasi_kurator": {
+      "label": "Perlu verifikasi kurator",
+      "body": "Tidak ada pelanggaran keras, tetapi ada indikator yang perlu dibaca manusia: itinerary tipis atau harga di bawah batas wajar.",
+      "goal": false
+    },
+    "publikasikan": {
+      "label": "PUBLIKASIKAN",
+      "body": "Semua syarat wajib terpenuhi: mitra terverifikasi, itinerary lengkap, pax valid, harga wajar, kebijakan pembatalan terisi, dan akomodasi tersedia bila menginap.",
+      "goal": true
+    },
+    "simpan_draft": {
+      "label": "SIMPAN SEBAGAI DRAFT",
+      "body": "Paket belum siap dinilai: datanya belum lengkap atau masih perlu verifikasi kurator. Simpan dulu, mitra masih bisa melengkapi.",
+      "goal": true
+    },
+    "perlu_revisi": {
+      "label": "REVISI SEBELUM PUBLIKASI",
+      "body": "Ada pelanggaran aturan wajib (durasi, pax, harga, kebijakan, atau akomodasi). Paket dikembalikan ke mitra untuk diperbaiki.",
+      "goal": true
+    }
+  },
+  "priority_note": "Urutan kunci di 'conclusions' menentukan prioritas: tujuan TERAKHIR yang menyala menang (REVISI > DRAFT > PUBLIKASIKAN). Alasannya: data yang melanggar aturan wajib harus diperbaiki dulu, sedangkan draft berarti paket belum diajukan untuk dinilai."
+}
