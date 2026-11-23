@@ -1,0 +1,38 @@
+{
+  "skenario1_paket_siap_publikasi": {
+    "keterangan": "Ijen Midnight versi lengkap: mitra terverifikasi, 2 hari x 3 aktivitas, pax wajar, harga dan kebijakan terisi, akomodasi ada.",
+    "facts": [
+      "partner_terverifikasi",
+      "itinerary_valid",
+      "pax_valid",
+      "harga_wajar",
+      "kebijakan_ada",
+      "komponen_akomodasi_ada"
+    ],
+    "expected": "publikasikan"
+  },
+  "skenario2_paket_kurang_detail": {
+    "keterangan": "Bromo Sunrise: itinerary terisi semua hari tetapi satu aktivitas per hari. Rantai R5 -> R6 -> R7.",
+    "facts": [
+      "partner_terverifikasi",
+      "hari_aktivitas_minim",
+      "pax_valid",
+      "harga_wajar",
+      "kebijakan_ada",
+      "komponen_akomodasi_ada"
+    ],
+    "expected": "simpan_draft"
+  },
+  "skenario3_paket_data_tidak_lengkap": {
+    "keterangan": "Paket 3 hari yang itinerary-nya tidak memuat hari ke-3. Rantai R3 -> R4.",
+    "facts": [
+      "partner_terverifikasi",
+      "hari_tanpa_aktivitas",
+      "pax_valid",
+      "harga_wajar",
+      "kebijakan_ada",
+      "komponen_akomodasi_ada"
+    ],
+    "expected": "perlu_revisi"
+  }
+}
